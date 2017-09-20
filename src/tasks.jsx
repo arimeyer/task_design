@@ -4,11 +4,14 @@ const Tasks = ({ children }) => {
     const styles = {
         container: {
             gridArea: 'task',
-            background: 'blue'
+            display: 'flex',
+            flexDirection: 'column',
+            overflowY: 'scroll',
         }
     }
     return (
         <div style={styles.container}>
+            {children}
         </div>
     )
 }

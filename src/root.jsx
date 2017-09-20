@@ -2,6 +2,9 @@ import React from 'react'
 import Schedule from './schedule.jsx'
 import NavBar from './navbar.jsx'
 import Tasks from './tasks.jsx'
+import Task from './task.jsx'
+
+import fakeTask from './faketask.js'
 
 const Root = () => {
     const styles = {
@@ -19,7 +22,9 @@ const Root = () => {
     return (
         <div style={styles.container}>
             <NavBar />
-            <Tasks />
+            <Tasks>
+                {Array(20).fill(fakeTask).map((x, i) => <Task key={i} text={x} />)}
+            </Tasks>
             <Schedule />
         </div>
     )
