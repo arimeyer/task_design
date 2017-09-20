@@ -1,17 +1,26 @@
 import React from 'react'
+import Hour from './hour.jsx'
+import hours from './hours.js'
 
-const Schedule = ({children}) => {
+const Schedule = () => {
     const styles = {
-        container: {
+        outerContainer: {
+            borderTop: '1px solid grey',
+            borderBottom: '1px solid grey',
+            gridArea: "day",
+            overflowY: 'scroll'
+        },
+        innerContainer: {
             display: 'flex',
             flexDirection: 'column',
-            borderTop: '1px solid grey',
-            borderBottom: '1px solid grey'
+            height: '300%'          
         }
     }
     return (
-        <div style={styles.container}>
-            {children}
+        <div style={styles.outerContainer}>
+            <div style={styles.innerContainer}>
+                {hours.map((x, i) => <Hour key={i} label={x} />)}
+            </div>
         </div>
     )
 }
