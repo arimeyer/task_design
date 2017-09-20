@@ -7,12 +7,11 @@ const Root = () => {
     const styles = {
         container: {
             display: 'grid',
+            gridTemplateRows: '1fr 13fr',
+            gridTemplateColumns: '1fr 6fr',
             gridTemplateAreas: 
-                `"nav nav nav nav nav"
-                 "task day day day day"
-                 "task day day day day"
-                 "task day day day day"
-                 "task day day day day"`,
+                `"nav nav"
+                 "task day"`,
             height: '100vh',
             width: '100vw'
         }

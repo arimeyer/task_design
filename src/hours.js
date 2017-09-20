@@ -22,5 +22,4 @@ export default [
     '9 PM',
     '10 PM',
     '11 PM',
-    '12 PM'
 ]
