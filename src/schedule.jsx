@@ -2,10 +2,10 @@ import React from 'react'
 import Hour from './hour.jsx'
 import hours from './hours.js'
 
-const Schedule = () => {
+const Schedule = ({ gridArea }) => {
     const styles = {
         outerContainer: {
-            gridArea: "day",
+            gridArea,
             overflowY: 'scroll'
         },
         innerContainer: {

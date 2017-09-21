@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Hour = ({label}) => {
+    const size = 40
     const styles = {
         container: {
             flex: '1',
@@ -12,16 +13,20 @@ const Hour = ({label}) => {
         },
         hourLabel: {
             position: 'absolute',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
             background: 'white',
-            top: '-6.5px',
-            left: '10px',
-            width: '40px',
-            textAlign: 'center'
+            top: -1 * (size / 2) + 'px',
+            left: (size / 2) + 'px',
+            width: size + 'px',
+            height: size + 'px',
         }
     }
     return (
         <div style={styles.container}>
-            <span style={styles.hourLabel}>{label}</span>
+            <div style={styles.hourLabel}>{label}</div>
         </div>
     )
 }

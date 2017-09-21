@@ -21,11 +21,11 @@ const Root = () => {
     }
     return (
         <div style={styles.container}>
-            <NavBar />
-            <Tasks>
+            <NavBar gridArea="nav" />
+            <Tasks gridArea="task" >
                 {Array(20).fill(fakeTask).map((x, i) => <Task key={i} text={x} />)}
             </Tasks>
-            <Schedule />
+            <Schedule gridArea="day" />
         </div>
     )
 }

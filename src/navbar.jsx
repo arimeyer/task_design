@@ -1,9 +1,9 @@
 import React from 'react'
 
-const NavBar = () => {
+const NavBar = ({ gridArea }) => {
     const styles = {
         container: {
-            gridArea: 'nav',
+            gridArea,
             background: 'red'
         }
     }

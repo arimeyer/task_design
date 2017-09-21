@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Tasks = ({ children }) => {
+const Tasks = ({ children, gridArea }) => {
     const styles = {
         container: {
-            gridArea: 'task',
+            gridArea,
             display: 'flex',
             flexDirection: 'column',
             overflowY: 'scroll',
