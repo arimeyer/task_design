@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Hour = ({label}) => {
+export default Hour = ({ label }) => {
     const size = 40
     const styles = {
         container: {
@@ -18,10 +18,10 @@ const Hour = ({label}) => {
             justifyContent: 'center',
             alignItems: 'center',
             background: 'white',
-            top: -1 * (size / 2) + 'px',
-            left: (size / 2) + 'px',
-            width: size + 'px',
-            height: size + 'px',
+            top: `${-1 * (size / 2)}px`,
+            left: `${(size / 2)}px`,
+            width: `${size}px`,
+            height: `${size}px`,
         }
     }
     return (
@@ -30,4 +30,3 @@ const Hour = ({label}) => {
         </div>
     )
 }
-export default Hour

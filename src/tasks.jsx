@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Tasks = ({ children, gridArea }) => {
+export default Tasks = ({ children, gridArea }) => {
     const styles = {
         container: {
             gridArea,
@@ -17,4 +17,3 @@ const Tasks = ({ children, gridArea }) => {
     )
 }
 
-export default Tasks

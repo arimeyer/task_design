@@ -6,7 +6,7 @@ import Task from './task.jsx'
 
 import fakeTask from './faketask.js'
 
-const Root = () => {
+export default Root = () => {
     const styles = {
         container: {
             display: 'grid',
@@ -30,4 +30,3 @@ const Root = () => {
     )
 }
 
-export default Root

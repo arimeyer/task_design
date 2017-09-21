@@ -2,7 +2,7 @@ import React from 'react'
 import Hour from './hour.jsx'
 import hours from './hours.js'
 
-const Schedule = ({ gridArea }) => {
+export default Schedule = ({ gridArea }) => {
     const styles = {
         outerContainer: {
             gridArea,
@@ -27,4 +27,3 @@ const Schedule = ({ gridArea }) => {
     )
 }
 
-export default Schedule

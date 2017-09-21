@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Task = ({ text }) => {
+export default Task = ({ text }) => {
     const styles = {
         container: {
             background: 'grey',
             padding: '10px'
-        },
+        }
     }
     return (
         <div style={styles.container}>
@@ -14,4 +14,3 @@ const Task = ({ text }) => {
     )
 }
 
-export default Task

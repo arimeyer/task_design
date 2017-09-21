@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NavBar = ({ gridArea }) => {
+export default NavBar = ({ gridArea }) => {
     const styles = {
         container: {
             gridArea,
@@ -13,4 +13,3 @@ const NavBar = ({ gridArea }) => {
     )
 }
 
-export default NavBar
