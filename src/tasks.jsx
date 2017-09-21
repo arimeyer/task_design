@@ -4,9 +4,10 @@ const Tasks = ({ children, gridArea }) => {
     const styles = {
         container: {
             gridArea,
-            display: 'flex',
-            flexDirection: 'column',
+            display: 'grid',
             overflowY: 'scroll',
+            gridGap: '15px',
+            padding: '15px'
         }
     }
     return (
