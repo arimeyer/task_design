@@ -3,10 +3,12 @@ import Schedule from './schedule.jsx'
 import NavBar from './navbar.jsx'
 import Tasks from './tasks.jsx'
 import Task from './task.jsx'
+import Hour from './hour.jsx'
+import hours from './hours.js'
 
 import fakeTask from './faketask.js'
 
-export default Root = () => {
+export default () => {
     const styles = {
         container: {
             display: 'grid',
@@ -25,7 +27,9 @@ export default Root = () => {
             <Tasks gridArea="task" >
                 {Array(20).fill(fakeTask).map((x, i) => <Task key={i} text={x} />)}
             </Tasks>
-            <Schedule gridArea="day" />
+            <Schedule gridArea="day" >
+                {hours.map((x, i) => <Hour key={i} label={x} />)}
+            </Schedule>
         </div>
     )
 }

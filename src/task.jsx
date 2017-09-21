@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default Task = ({ text }) => {
+export default ({ text }) => {
     const styles = {
         container: {
             background: 'grey',

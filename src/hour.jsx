@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default Hour = ({ label }) => {
+export default ({ label }) => {
     const size = 40
     const styles = {
         container: {

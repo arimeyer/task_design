@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const DragNDrop = () => {
-    
+export default Wrapped => class extends Component {
+    constructor() {
+        super()
+        this.state = {
+            position: {
+                x: 0,
+                y: 0
+            }
+        }
+    }
+    render() {
+        return (
+            <div>
+                <Wrapped />
+            </div>
+        )
+    }
 }
 
-export default DragNDrop
