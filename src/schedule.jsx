@@ -15,7 +15,6 @@ const Schedule = ({ gridArea }) => {
         },
         offSet: {
             flex: '1',
-            borderBottom: '1px solid grey',            
         }
     }
     return (

@@ -5,7 +5,7 @@ const Hour = ({label}) => {
     const styles = {
         container: {
             flex: '1',
-            borderBottom: '1px solid grey',
+            borderTop: '1px solid grey',
             fontFamily: 'Arial, san-serif',
             color: 'grey',
             fontSize: '10px',
