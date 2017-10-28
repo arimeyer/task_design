@@ -3,12 +3,9 @@ import Schedule from './schedule.jsx'
 import NavBar from './navbar.jsx'
 import Tasks from './tasks.jsx'
 import Task from './task.jsx'
-import Hour from './hour.jsx'
-import hours from './hours.js'
 
-import fakeTask from './faketask.js'
 
-export default () => {
+export default ({schedule, tasks}) => {
     const styles = {
         container: {
             display: 'grid',
@@ -25,11 +22,9 @@ export default () => {
         <div style={styles.container}>
             <NavBar gridArea="nav" />
             <Tasks gridArea="task" >
-                {Array(20).fill(fakeTask).map((x, i) => <Task key={i} text={x} />)}
+                {tasks.map(({text, key: id}) => <Task {...{text, key}} />)}
             </Tasks>
-            <Schedule gridArea="day" >
-                {hours.map((x, i) => <Hour key={i} label={x} />)}
-            </Schedule>
+            <Schedule gridArea="day" schedule={schedule} />
         </div>
     )
 }

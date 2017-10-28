@@ -1,6 +1,8 @@
 import React from 'react'
+import Hour from './hour.jsx'
+import hours from './hours.js'
 
-export default ({ gridArea, children }) => {
+export default ({ gridArea, tasks }) => {
     const styles = {
         outerContainer: {
             gridArea,
@@ -19,7 +21,7 @@ export default ({ gridArea, children }) => {
         <div style={styles.outerContainer}>
             <div style={styles.innerContainer}>
                 <div style={styles.offSet}></div>
-                {children}
+                {hours.map((x, i) => <Hour key={i} label={x} />)}
             </div>
         </div>
     )

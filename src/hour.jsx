@@ -1,6 +1,7 @@
 import React from 'react'
+import Task from './task.jsx'
 
-export default ({ label }) => {
+export default ({ label, children }) => {
     const size = 40
     const styles = {
         container: {
@@ -9,7 +10,7 @@ export default ({ label }) => {
             fontFamily: 'Arial, san-serif',
             color: 'grey',
             fontSize: '10px',
-            position: 'relative'
+            position: 'relative',
         },
         hourLabel: {
             position: 'absolute',
@@ -27,6 +28,7 @@ export default ({ label }) => {
     return (
         <div style={styles.container}>
             <div style={styles.hourLabel}>{label}</div>
+            {children}
         </div>
     )
 }

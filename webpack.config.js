@@ -1,4 +1,6 @@
 var path = require('path')
+var webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, 'src/index.jsx'),
@@ -11,5 +13,5 @@ module.exports = {
             { test: /jsx$/, loader: 'babel-loader' }
         ]
     },
-    devtool: 'eval-source-map'
+    devtool: 'inline-source-map'
 }
