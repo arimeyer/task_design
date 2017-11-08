@@ -1,30 +1,34 @@
 import React from 'react'
-import Hour from './hour.jsx'
-import hours from './hours.js'
 import styled from 'styled-components'
+import hours from './hours.js'
+import Hour from './hour.jsx'
+import { HOURS_ON_SCREEN } from './ui_constants.js'
+
+const SCHEDULE_HEIGHT_VH = 2400 / HOURS_ON_SCREEN
+const HOUR_HEIGHT_VH = 100 / HOURS_ON_SCREEN
 
 const OuterContainer = styled.div`
     grid-area: ${({gridArea}) => gridArea};
     overflow-y: scroll;
 `
 const InnerContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 300%;
-`
-
-const Offset = styled.div`
-    flex: 1;
+    height: ${SCHEDULE_HEIGHT_VH}vh;
+    position: relative;
+    display: grid;
+    grid-template-rows: repeat(24, ${HOUR_HEIGHT_VH}vh);
 `
 
 export default ({ gridArea, tasks }) => {
     return (
         <OuterContainer {...{gridArea}}>
             <InnerContainer>
-                <Offset/>
+                <div></div>
                 {hours.map((x, i) => <Hour key={i} label={x} />)}
             </InnerContainer>
         </OuterContainer>
     )
 }
 
+/**
+ * tasks: {top, left, content: {text, time}}[]
+ */

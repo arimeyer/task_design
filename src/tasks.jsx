@@ -1,19 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
 
-export default ({ children, gridArea }) => {
-    const styles = {
-        container: {
-            gridArea,
-            display: 'grid',
-            overflowY: 'scroll',
-            gridGap: '15px',
-            padding: '15px'
-        }
-    }
-    return (
-        <div style={styles.container}>
-            {children}
-        </div>
-    )
-}
-
+export default styled.div`
+    grid-area: ${({gridArea}) => gridArea};
+    display: grid;
+    overflow-y: scroll;
+    grid-gap: 15px;
+    padding: 15px;
+`

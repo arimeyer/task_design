@@ -1,15 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
 
-export default ({ gridArea }) => {
-    const styles = {
-        container: {
-            gridArea,
-            background: 'red'
-        }
-    }
-    return (
-        <div style={styles.container}>
-        </div>
-    )
-}
+export default styled.div`
+    background: red;
+    grid-area: ${({gridArea}) => gridArea};
+`
+
+
 

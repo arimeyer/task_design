@@ -1,16 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Container = styled.div`
+    background: grey;
+    padding: 10px;
+`
 
 export default ({ text }) => {
-    const styles = {
-        container: {
-            background: 'grey',
-            padding: '10px'
-        }
-    }
     return (
-        <div style={styles.container}>
+        <Container>
             {text}
-        </div>
+        </Container>
     )
 }
 

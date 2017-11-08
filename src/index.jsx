@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Root from './root.jsx'
-import fakeTask from './faketask.js'
+import fakeTasks from './faketask.js'
 
 
-ReactDOM.render(<Root unscheduled={Array(20).fill(fakeTask)}/>, document.getElementById('app'))
+ReactDOM.render(<Root tasks={fakeTasks()}/>, document.getElementById('app'))

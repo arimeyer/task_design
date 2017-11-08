@@ -6,11 +6,13 @@
   "dependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
     "express": "^4.16.1",
+    "mathjs": "^3.16.5",
+    "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-dnd": "^2.5.3",
     "react-dnd-html5-backend": "^2.5.3",
     "react-dom": "^15.6.2",
-    "styled": "^1.0.0"
+    "styled-components": "^2.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
