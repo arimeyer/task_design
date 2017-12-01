@@ -18,14 +18,14 @@ const Container = styled.div`
     width: 100vw;
 `
 
-export default ({schedule, tasks}) => {
+export default ({items, tasks}) => {
     return (
         <Container>
             <NavBar gridArea="nav" />
             <Tasks gridArea="task" >
                 {tasks.map(({text, id: key}) => <Task {...{text, key}} />)}
             </Tasks>
-            <Schedule gridArea="day" schedule={schedule} />
+            <Schedule gridArea="day" items={items} />
         </Container>
     )
 }

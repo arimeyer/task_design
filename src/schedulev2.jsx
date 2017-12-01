@@ -13,17 +13,25 @@ const OuterContainer = styled.div`
 `
 const InnerContainer = styled.div`
     height: ${SCHEDULE_HEIGHT_VH}vh;
-    position: relative;
     display: grid;
-    grid-template-rows: repeat(24, ${HOUR_HEIGHT_VH}vh);
+    grid-template-rows: repeat(1440 , 1fr);
+    grid-template-columns: repeat(${({columns}) => columns}, 1fr)
 `
 
-export default ({ gridArea, tasks }) => {
+const Item = styled.div`
+    grid-row-start: ${({start}) => start};
+    grid-row-end: ${({end}) => end};
+    grid-column-start: ${({})}
+`
+
+const getColumns = items => items.reduce((a, x) => a*x)
+
+export default ({ gridArea, items }) => {
+    const columns = getColumns(items)
     return (
         <OuterContainer {...{gridArea}}>
-            <InnerContainer>
-                <div></div>
-                {hours.map((x, i) => <Hour key={i} label={x} />)}
+            <InnerContainer columns={columns}>
+                
             </InnerContainer>
         </OuterContainer>
     )
@@ -31,4 +39,10 @@ export default ({ gridArea, tasks }) => {
 
 /**
  * tasks: {top, left, content: {text, time}}[]
+ * 
+ * 
+ * 
+ * 
+ * <div></div>
+                {hours.map((x, i) => <Hour key={i} label={x} />)}
  */

@@ -4,4 +4,4 @@ import Root from './root.jsx'
 import fakeTasks from './faketask.js'
 
 
-ReactDOM.render(<Root tasks={fakeTasks()}/>, document.getElementById('app'))
+ReactDOM.render(<Root tasks={fakeTasks()} />, document.getElementById('app'))

@@ -21,7 +21,7 @@ const Label = styled.div`
     align-items: center;
     background: white;
     top: ${-1 * (size / 2)}px;
-    left: ${(size / 2)}px;
+    left: ${(size)}px;
     width: ${size}px;
     height: ${size}px;
 `
