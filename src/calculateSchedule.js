@@ -1,6 +1,8 @@
 // item = { id, content, start, end }
 
-const getTimeLines = items => items.reduce((a, { id, start, end }) => a.concat([{ t: start, id, start: true }, { t: end, id }], []))
+const getTimeLines = items => items.reduce(
+    (a, { id, start, end }) => a.concat([{ t: start, id, start: true }, { t: end, id }], [])
+)
 
 const sortTimeLines = times => times.slice().sort(
     ({t: t1}, {t: t2}) => {
@@ -41,7 +43,7 @@ const getLargestOpening = row => row.reduce(
 )[0]
 
 
-const getFracs = times => times.reduce(
+const getFrames = times => times.reduce(
     (a, { id, start }) => {
         const last = a[a.length - 1]
         let newOpen
@@ -49,27 +51,73 @@ const getFracs = times => times.reduce(
             const largestOpening = getLargestOpening(last)
             if (largestOpening) {
                 newOpen = last.reduce(
-                    (a, item, i) => i >= largestOpening[0] && i <= largestOpening[1]
-                        ? a.concat(id)
-                        : a.concat(item),
+                    (acc, item, i) => i >= largestOpening[0] && i <= largestOpening[1]
+                        ? acc.concat(id)
+                        : acc.concat(item),
                     []
                 )
             } else {
                 newOpen = last.concat(id)
             }
         } else {
-            newOpen = last
-            newOpen[last.indexOf(id)] = "EMPTY"
+            newOpen = last.map(
+                itemId => itemId === id 
+                    ? "EMPTY"
+                    : itemId
+            )
         }
         a.push(newOpen)
         return a
     }, []
 )
 
-export default calculateSchedule = items => {
-    const fracs = getFracs(sortTimelines(getTimeLines(items)))
-    return items.map(item => ({ ...item, frac: fracs.get(item.id) }))
+const calculateXPosFromFrames = frames => frames.reduce(
+    (a, row, frames) => {
+        Object.entries(row.reduce(
+            (acc, itemId, i) => {
+                itemId !== "EMPTY" && (
+                    acc[itemId]
+                        ? (acc[itemId] = acc[itemId].add(i))
+                        : (acc[itemId] = new Set())
+                )
+                return acc
+            },
+            {}
+        )).forEach(
+            ([itemId, indices]) => !a[itemId] && (
+                (a[itemId] = { x1: Math.min(...indices) / row.length * 100, x2: Math.max(...indices) / row.length * 100 })
+            )
+        )
+        return a
+    },
+    {}
+)
+
+const addXPosToData = (items, xPos) => items.map(
+    item => ({ ...item, ...xPos[item.id] })
+)
+
+const addYPosToData = items => {
+    const unixDayStart = Date.parse(new Date().toDateString())
+    return items.map(
+        item => {
+            item.y1 = (item.start - unixDayStart) / 60 / 144
+            item.y2 = (item.end - unixDayStart) / 60 / 144
+            return item
+        } 
+    )
 }
+
+export default items => addYPosToData(
+    addXPosToData(items, 
+        calculateXPosFromFrames(
+            getFrames(
+                getTimeLines(items)
+            )
+        )
+    )
+)
+
 
 
 
